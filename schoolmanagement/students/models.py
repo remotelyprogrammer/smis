@@ -10,8 +10,23 @@ class Student(models.Model):
     country_of_birth = models.CharField(max_length=100)
     birth_place = models.CharField(max_length=100)
     nationality = models.CharField(max_length=100)
-    civil_status = models.CharField(max_length=20)
-    sex = models.CharField(max_length=10)
+
+    CIVIL_STATUS_CHOICES = [
+        ('', '---------'),
+        ('single', 'Single'),
+        ('married', 'Married'),
+        ('widowed', 'Widowed'),
+        ('divorced', 'Divorced'),
+        ('separated', 'Separated'),
+    ]
+    civil_status = models.CharField(max_length=20, choices=CIVIL_STATUS_CHOICES, blank=True)
+
+    SEX_CHOICES = [
+        ('', '---------'),
+        ('male', 'Male'),
+        ('female', 'Female'),
+    ]
+    sex = models.CharField(max_length=10, choices=SEX_CHOICES, blank=True)
     religion = models.CharField(max_length=100)
     mobile_number = models.CharField(max_length=20)
     telephone_number = models.CharField(max_length=20, blank=True)

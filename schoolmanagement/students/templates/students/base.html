@@ -34,7 +34,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -366,7 +366,9 @@
                 <div class="container-fluid min-vh-100">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Page Heading</h1>
+                    <h1 class="h1 mb-4 text-gray-800">
+                        {{ page_heading|default:"Page Head" }}
+                    </h1>
 
                     <!--Begin Body Content by JM-->
                     {% block title %}
