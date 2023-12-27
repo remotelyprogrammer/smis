@@ -5,5 +5,5 @@ from django.urls import path
 app_name = 'students'
 
 urlpatterns = [
-    path('blank/', blank, name='students-blank'),
+    path('', blank, name='students-blank'),
 ]
