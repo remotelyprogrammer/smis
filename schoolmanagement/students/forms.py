@@ -44,4 +44,9 @@ class AddressForm(forms.ModelForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = '__all__'  # Or specify individual fields
+        fields = ['full_name', 'relationship']
+
+        widgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'relationship': forms.TextInput(attrs={'class': 'form-control'})
+        }
