@@ -1,0 +1,12 @@
+{% extends 'webutil/index.html' %}
+
+{% block content %}
+  <h1>Instructor Details</h1>
+  <p>Name: {{ instructor.user.get_full_name }}</p>
+  <p>Title: {{ instructor.title }}</p>
+  <p>Department: {{ instructor.department }}</p>
+  <!-- Add more fields as necessary -->
+
+<a href="{% url 'academics:instructor_logout' %}">Log out</a>
+
+{% endblock %}

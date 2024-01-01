@@ -1,4 +1,4 @@
-{% extends 'students/base.html' %}
+{% extends 'webutil/index.html' %}
 {% load crispy_forms_tags %}
 
 
@@ -9,6 +9,7 @@
     {% csrf_token %}
 
     <!-- Basic Details Section -->
+
     <div class="card mb-4">
         <div class="card-header text-center">
             <h4>Basic Details</h4>
@@ -205,7 +206,8 @@
                                     </div>
 
                                 </div>
-        </div>
+         </div>
+
     </div>
 
     <div class="mt-3 text-center">
