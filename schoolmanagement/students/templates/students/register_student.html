@@ -1,21 +1,15 @@
-{% extends 'students/base.html' %}
+{% extends 'students/base2.html' %}
 
 {% block title %}
-
-
 <form method="post">
-        {% csrf_token %}
-        <div class="card mb-4">
-                            <div class="card-header text-center">
-                                <h4>Basic Details</h4>
-                            </div>
-
-
-                <div class="card-body">
-
-
-                                <div class="row">
-
+    {% csrf_token %}
+    <!-- Basic Details Section -->
+    <div class="card mb-4">
+        <div class="card-header text-center">
+            <h4>Basic Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
                                     <div class="col-3 mt-3">
                                         {{ student_form.first_name.label_tag }}
                                         {{ student_form.first_name }}
@@ -36,9 +30,9 @@
                                         {{ student_form.suffix }}
                                         {{ student_form.suffix.errors }}
                                     </div>
-                                </div>
+            </div>
 
-                                <div class="row">
+            <div class="row" >
                                     <div class="col-3 mt-3">
                                         {{ student_form.birth_place.label_tag }}
                                         {{ student_form.birth_place }}
@@ -59,9 +53,8 @@
                                         {{ student_form.nationality }}
                                         {{ student_form.nationality.errors }}
                                     </div>
-                                </div>
-
-                                <div class="row">
+            </div>
+            <div class="row">
                                     <div class="col-3 mt-3">
                                         {{ student_form.civil_status.label_tag }}
                                         {{ student_form.civil_status }}
@@ -77,9 +70,8 @@
                                         {{ student_form.religion }}
                                         {{ student_form.religion.errors }}
                                     </div>
-                                </div>
-
-                                <div class="row">
+            </div>
+            <div class="row">
                                     <div class="col-3 mt-3">
                                         {{ student_form.mobile_number.label_tag }}
                                         {{ student_form.mobile_number }}
@@ -95,12 +87,18 @@
                                         {{ student_form.personal_email }}
                                         {{ student_form.personal_email.errors }}
                                     </div>
-                                </div>
 
-                        <!--        Test Section-->
-                                <div class="card-header text-center">
-                                    <h4>Address</h4>
-                                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Address Section -->
+    <div class="card mb-4">
+        <div class="card-header text-center">
+            <h4>Address</h4>
+        </div>
+        <div class="card-body">
                                 <div class="row">
                                     <div class="col-3 mt-3">
                                         {{ address_form.province.label_tag }}
@@ -132,10 +130,16 @@
                                     </div>
 
                                 </div>
-                                <div class="card-header text-center">
-                                    <h4>Contact</h4>
-                                </div>
-                                <div class="row">
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="card mb-4">
+        <div class="card-header text-center">
+            <h4>Contact in Case of Emergency</h4>
+        </div>
+        <div class="card-body">
+                                <div class="row justify-content-center">
                                     <div class="col-3 mt-3">
                                         {{ contact_form.full_name.label_tag }}
                                         {{ contact_form.full_name }}
@@ -148,19 +152,11 @@
                                     </div>
 
                                 </div>
-
-
-                                    <div class="mt-3 text-center">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-
-
-
-                </div>
-
-
-
-
         </div>
+    </div>
+
+    <div class="mt-3 text-center">
+        <button type="submit" class="btn btn-primary mb-4 mt-4">Submit</button>
+    </div>
 </form>
 {% endblock %}

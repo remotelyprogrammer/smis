@@ -109,7 +109,7 @@
                                             <div class="form-floating">
                                                 {{ student_form.mobile_number }}
                                                 <label for="{{ student_form.mobile_number.id_for_label }}">{{ student_form.mobile_number.label }}</label>
-                                                {{ student_form.mobile_number.errors }}
+
                                             </div>
                                     </div>
                                     <div class="col-3 mt-3">
@@ -138,78 +138,80 @@
             <h4>Address</h4>
         </div>
         <div class="card-body">
-            <div class="row">
+                                <div class="row">
                                     <div class="col-3 mt-3">
-                                            <div class="form-floating">
-                                                {{ address_form.province }}
-                                                <label for="{{ address_form.province.id_for_label }}">{{ address_form.province.label }}</label>
-                                                {{ address_form.province.errors }}
-                                            </div>
+                                        {{ address_form.province.label_tag }}
+                                        {{ address_form.province }}
+                                        {{ address_form.province.errors }}
                                     </div>
                                     <div class="col-3 mt-3">
-                                            <div class="form-floating">
-                                                {{ address_form.city }}
-                                                <label for="{{ address_form.city.id_for_label }}">{{ address_form.city.label }}</label>
-                                                {{ address_form.city.errors }}
-                                            </div>
+                                        {{ address_form.city.label_tag }}
+                                        {{ address_form.city }}
+                                        {{ address_form.city.errors }}
                                     </div>
                                     <div class="col-3 mt-3">
-                                            <div class="form-floating">
-                                                {{ address_form.house_number }}
-                                                <label for="{{ address_form.house_number.id_for_label }}">{{ address_form.house_number.label }}</label>
-                                                {{ address_form.house_number.errors }}
-                                            </div>
+                                        {{ address_form.house_number.label_tag }}
+                                        {{ address_form.house_number }}
+                                        {{ address_form.house_number.errors }}
                                     </div>
                                     <div class="col-3 mt-3">
-                                            <div class="form-floating">
-                                                {{ address_form.barangay }}
-                                                <label for="{{ address_form.barangay.id_for_label }}">{{ address_form.barangay.label }}</label>
-                                                {{ address_form.barangay.errors }}
-                                            </div>
+                                        {{ address_form.barangay.label_tag }}
+                                        {{ address_form.barangay }}
+                                        {{ address_form.barangay.errors }}
                                     </div>
 
-            </div>
-
-            <div class="row">
+                                </div>
+                                <div class="row">
                                     <div class="col-3 mt-3">
-                                            <div class="form-floating">
-                                                {{ address_form.postal_code }}
-                                                <label for="{{ address_form.postal_code.id_for_label }}">{{ address_form.postal_code.label }}</label>
-                                                {{ address_form.postal_code.errors }}
-                                            </div>
-                                    </div>
-            </div>
-    </div>
-
-    <!-- Contact Section -->
-    <div class="card mb-4">
-        <div class="card-header text-center">
-            <h4>Contact in Case of Emergency</h4>
-        </div>
-        <div class="card-body">
-                                <div class="row justify-content-center">
-                                    <div class="col-3 mt-3">
-                                        {{ contact_form.full_name.label_tag }}
-                                        {{ contact_form.full_name }}
-                                        {{ contact_form.full_name.errors }}
-                                    </div>
-                                    <div class="col-3 mt-3">
-                                        {{ contact_form.relationship.label_tag }}
-                                        {{ contact_form.relationship }}
-                                        {{ contact_form.relationship.errors }}
-                                    </div>
-                                    <div class="col-3 mt-3">
-                                        {{ contact_form.mobile_number.label_tag }}
-                                        {{ contact_form.mobile_number }}
-                                        {{ contact_form.mobile_number.errors }}
+                                        {{ address_form.postal_code.label_tag }}
+                                        {{ address_form.postal_code }}
+                                        {{ address_form.postal_code.errors }}
                                     </div>
 
                                 </div>
         </div>
     </div>
 
+        <div class="card mb-4">
+            <div class="card-header text-center">
+              <h4>Contact Information</h4>
+            </div>
+            <div class="card-body">
+            {% for contact_form in contact_form %}
+              <!-- Display the fields for each contact form here -->
+              <div class="row justify-content-center">
+                                            <div class="col-4 mt-3">
+                                                {{ contact_form.full_name.label_tag }}
+                                                {{ contact_form.full_name }}
+                                                {{ contact_form.full_name.errors }}
+                                            </div>
+                                            <div class="col-4    mt-3">
+                                                {{ contact_form.relationship.label_tag }}
+                                                {{ contact_form.relationship }}
+                                                {{ contact_form.relationship.errors }}
+                                            </div>
+                                            <div class="col-4    mt-3">
+                                                {{ contact_form.mobile_number.label_tag }}
+                                                {{ contact_form.mobile_number }}
+                                                {{ contact_form.mobile_number.errors }}
+                                            </div>
+              </div>
+
+            {% endfor %}
+              <!-- Add other fields as necessary -->
+            </div>
+        </div>
+
     <div class="mt-3 text-center">
         <button type="submit" class="btn btn-primary mb-4 mt-4">Submit</button>
     </div>
+<form action="{% url 'students:delete_student' student_id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete" class="btn btn-danger">
+</form>
+
+
+
+
 </form>
 {% endblock %}
