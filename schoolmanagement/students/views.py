@@ -8,6 +8,8 @@ from django.db import transaction
 from .models import Student, Contact, Address
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 def blank(requests):
@@ -42,26 +44,27 @@ def register_student(request):
         address_form = AddressForm(request.POST)
         contact_form = ContactForm(request.POST)
 
-        # Check if all forms are valid
         if student_form.is_valid() and address_form.is_valid() and contact_form.is_valid():
-            with transaction.atomic():  # Ensure that all objects are saved or none if there's an error
+            with transaction.atomic():
                 student = student_form.save()
+
+                # Save address information
                 address = address_form.save(commit=False)
                 address.student = student
                 address.save()
+
+                # Save contact information
                 contact = contact_form.save(commit=False)
                 contact.student = student
                 contact.save()
-                messages.success(request, 'Student, address, and contact information saved successfully!')
-                return redirect('students:students-home')  # Adjust the redirect to the correct URL name
+
+                messages.success(request, 'Student information saved successfully!')
+                return redirect('students:students-home')
         else:
-            # If forms are not valid, add the error messages
-            for error in student_form.errors.values():
-                messages.error(request, error)
-            for error in address_form.errors.values():
-                messages.error(request, error)
-            for error in contact_form.errors.values():
-                messages.error(request, error)
+            # Handle form errors
+            for form in [student_form, address_form, contact_form]:
+                for error in form.errors.values():
+                    messages.error(request, error)
     else:
         student_form = StudentRegistrationForm()
         address_form = AddressForm()
@@ -73,8 +76,7 @@ def register_student(request):
         'contact_form': contact_form,
         'page_heading': 'Student Registration'
     }
-
-    return render(request, 'students/register_student2.html', context)
+    return render(request, 'students/register_student.html', context)
 
 
 def edit_student_details(request, student_id):

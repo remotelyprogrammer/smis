@@ -1,0 +1,13 @@
+{% extends 'students/base.html' %}
+{% block content %}
+    <h2>{{ page_heading }}</h2>
+    {% if student %}
+        <p>Student ID: {{ student.std_sch_id }}</p>
+        <p>Student Name: {{ full_name }}</p> <!-- Replace 'name' with the actual field in your Student model -->
+        <!-- Add other student fields as required -->
+        <p>Enrollment Type : {{enrollment.enrollment_type}}</p>
+        <p>Enrollment Date: {{ enrollment.enrollment_date }}</p>
+    {% else %}
+        <p>No student details found for this enrollment.</p>
+    {% endif %}
+{% endblock %}

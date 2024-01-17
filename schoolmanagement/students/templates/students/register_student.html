@@ -1,9 +1,17 @@
-{% extends 'students/base2.html' %}
+{% extends 'students/base.html' %}
+{% load crispy_forms_tags %}
 
-{% block title %}
+{{ form.field_name.errors }}
+
+{% block content %}
+
+
+
 <form method="post">
     {% csrf_token %}
+
     <!-- Basic Details Section -->
+
     <div class="card mb-4">
         <div class="card-header text-center">
             <h4>Basic Details</h4>
@@ -11,81 +19,115 @@
         <div class="card-body">
             <div class="row">
                                     <div class="col-3 mt-3">
-                                        {{ student_form.first_name.label_tag }}
-                                        {{ student_form.first_name }}
-                                        {{ student_form.last_name.errors }}
+
+                                            <div class="form-floating">
+
+                                                {{ student_form.first_name }}
+                                                <label for="{{ student_form.first_name.id_for_label }}" >{{ student_form.first_name.label }}</label>
+                                                {{ student_form.first_name.errors }}
+
+                                            </div>
+
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ student_form.middle_name.label_tag }}
-                                        {{ student_form.middle_name }}
-                                        {{ student_form.middle_name.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.middle_name }}
+                                                <label for="{{ student_form.middle_name.id_for_label }}">{{ student_form.middle_name.label }}</label>
+                                                {{ student_form.middle_name.errors }}
+                                            </div>
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ student_form.last_name.label_tag }}
-                                        {{ student_form.last_name }}
-                                        {{ student_form.last_name.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.last_name }}
+                                                <label for="{{ student_form.last_name.id_for_label }}">{{ student_form.last_name.label }}</label>
+                                                {{ student_form.last_name.errors }}
+                                            </div>
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ student_form.suffix.label_tag }}
-                                        {{ student_form.suffix }}
-                                        {{ student_form.suffix.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.suffix }}
+                                                <label for="{{ student_form.suffix.id_for_label }}">{{ student_form.suffix.label }}</label>
+                                                {{ student_form.suffix.errors }}
+                                            </div>
                                     </div>
             </div>
 
             <div class="row" >
                                     <div class="col-3 mt-3">
-                                        {{ student_form.birth_place.label_tag }}
-                                        {{ student_form.birth_place }}
-                                        {{ student_form.birth_place.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.birth_place }}
+                                                <label for="{{ student_form.birth_place.id_for_label }}">{{ student_form.birth_place.label }}</label>
+                                                {{ student_form.birth_place.errors }}
+                                            </div>
+                                    </div>
+
+                                    <div class="col-3 mt-3">
+                                            <div class="form-floating">
+                                                {{ student_form.country_of_birth }}
+                                                <label for="{{ student_form.country_of_birth.id_for_label }}">{{ student_form.country_of_birth.label }}</label>
+                                                {{ student_form.country_of_birth.errors }}
+                                            </div>
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ student_form.birth_date.label_tag }}
-                                        {{ student_form.birth_date }}
-                                        {{ student_form.birth_date.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.nationality }}
+                                                <label for="{{ student_form.nationality.id_for_label }}">{{ student_form.nationality.label }}</label>
+                                                {{ student_form.nationality.errors }}
+                                            </div>
                                     </div>
+
                                     <div class="col-3 mt-3">
-                                        {{ student_form.country_of_birth.label_tag }}
-                                        {{ student_form.country_of_birth }}
-                                        {{ student_form.country_of_birth.errors }}
-                                    </div>
-                                    <div class="col-3 mt-3">
-                                        {{ student_form.nationality.label_tag }}
-                                        {{ student_form.nationality }}
-                                        {{ student_form.nationality.errors }}
-                                    </div>
-            </div>
-            <div class="row">
-                                    <div class="col-3 mt-3">
-                                        {{ student_form.civil_status.label_tag }}
-                                        {{ student_form.civil_status }}
-                                        {{ student_form.civil_status.errors }}
-                                    </div>
-                                    <div class="col-3 mt-3">
-                                        {{ student_form.sex.label_tag }}
-                                        {{ student_form.sex }}
-                                        {{ student_form.sex.errors }}
-                                    </div>
-                                    <div class="col-3 mt-3">
-                                        {{ student_form.religion.label_tag }}
-                                        {{ student_form.religion }}
-                                        {{ student_form.religion.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.birth_date }}
+                                                <label for="{{ student_form.birth_date.id_for_label }}">{{ student_form.birth_date.label }}</label>
+                                                {{ student_form.birth_date.errors }}
+                                            </div>
                                     </div>
             </div>
             <div class="row">
                                     <div class="col-3 mt-3">
-                                        {{ student_form.mobile_number.label_tag }}
-                                        {{ student_form.mobile_number }}
-                                        {{ student_form.mobile_number.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.civil_status }}
+                                                <label for="{{ student_form.civil_status.id_for_label }}">{{ student_form.civil_status.label }}</label>
+                                                {{ student_form.civil_status.errors }}
+                                            </div>
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ student_form.telephone_number.label_tag }}
-                                        {{ student_form.telephone_number }}
-                                        {{ student_form.telephone_number.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.sex }}
+                                                <label for="{{ student_form.sex.id_for_label }}">{{ student_form.sex.label }}</label>
+                                                {{ student_form.sex.errors }}
+                                            </div>
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ student_form.personal_email.label_tag }}
-                                        {{ student_form.personal_email }}
-                                        {{ student_form.personal_email.errors }}
+                                            <div class="form-floating">
+                                                {{ student_form.religion }}
+                                                <label for="{{ student_form.religion.id_for_label }}">{{ student_form.religion.label }}</label>
+                                                {{ student_form.religion.errors }}
+                                            </div>
+                                    </div>
+            </div>
+            <div class="row">
+                                    <div class="col-3 mt-3">
+                                            <div class="form-floating">
+                                                {{ student_form.mobile_number }}
+                                                <label for="{{ student_form.mobile_number.id_for_label }}">{{ student_form.mobile_number.label }}</label>
+                                                {{ student_form.mobile_number.errors }}
+                                            </div>
+                                    </div>
+                                    <div class="col-3 mt-3">
+                                            <div class="form-floating">
+                                                {{ student_form.telephone_number }}
+                                                <label for="{{ student_form.telephone_number.id_for_label }}">{{ student_form.telephone_number.label }}</label>
+                                                {{ student_form.telephone_number.errors }}
+                                            </div>
+                                    </div>
+                                    <div class="col-3 mt-3">
+                                            <div class="form-floating">
+                                                {{ student_form.personal_email }}
+                                                <label for="{{ student_form.personal_email.id_for_label }}">{{ student_form.personal_email.label }}</label>
+                                                {{ student_form.personal_email.errors }}
+                                            </div>
                                     </div>
 
             </div>
@@ -99,37 +141,47 @@
             <h4>Address</h4>
         </div>
         <div class="card-body">
-                                <div class="row">
+            <div class="row justify-content-center">
                                     <div class="col-3 mt-3">
-                                        {{ address_form.province.label_tag }}
-                                        {{ address_form.province }}
-                                        {{ address_form.province.errors }}
+                                            <div class="form-floating">
+                                                {{ address_form.province }}
+                                                <label for="{{ address_form.province.id_for_label }}">{{ address_form.province.label }}</label>
+                                                {{ address_form.province.errors }}
+                                            </div>
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ address_form.city.label_tag }}
-                                        {{ address_form.city }}
-                                        {{ address_form.city.errors }}
+                                            <div class="form-floating">
+                                                {{ address_form.city }}
+                                                <label for="{{ address_form.city.id_for_label }}">{{ address_form.city.label }}</label>
+                                                {{ address_form.city.errors }}
+                                            </div>
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ address_form.house_number.label_tag }}
-                                        {{ address_form.house_number }}
-                                        {{ address_form.house_number.errors }}
+                                            <div class="form-floating">
+                                                {{ address_form.house_number }}
+                                                <label for="{{ address_form.house_number.id_for_label }}">{{ address_form.house_number.label }}</label>
+                                                {{ address_form.house_number.errors }}
+                                            </div>
                                     </div>
                                     <div class="col-3 mt-3">
-                                        {{ address_form.barangay.label_tag }}
-                                        {{ address_form.barangay }}
-                                        {{ address_form.barangay.errors }}
+                                            <div class="form-floating">
+                                                {{ address_form.barangay }}
+                                                <label for="{{ address_form.barangay.id_for_label }}">{{ address_form.barangay.label }}</label>
+                                                {{ address_form.barangay.errors }}
+                                            </div>
                                     </div>
 
-                                </div>
-                                <div class="row">
-                                    <div class="col-3 mt-3">
-                                        {{ address_form.postal_code.label_tag }}
-                                        {{ address_form.postal_code }}
-                                        {{ address_form.postal_code.errors }}
-                                    </div>
+            </div>
 
-                                </div>
+            <div class="row">
+                                    <div class="col-3 mt-3">
+                                            <div class="form-floating">
+                                                {{ address_form.postal_code }}
+                                                <label for="{{ address_form.postal_code.id_for_label }}">{{ address_form.postal_code.label }}</label>
+                                                {{ address_form.postal_code.errors }}
+                                            </div>
+                                    </div>
+            </div>
         </div>
     </div>
 
@@ -140,23 +192,33 @@
         </div>
         <div class="card-body">
                                 <div class="row justify-content-center">
-                                    <div class="col-3 mt-3">
+                                    <div class="col-4 mt-3">
                                         {{ contact_form.full_name.label_tag }}
                                         {{ contact_form.full_name }}
                                         {{ contact_form.full_name.errors }}
                                     </div>
-                                    <div class="col-3 mt-3">
+                                    <div class="col-4 mt-3">
                                         {{ contact_form.relationship.label_tag }}
                                         {{ contact_form.relationship }}
                                         {{ contact_form.relationship.errors }}
                                     </div>
+                                    <div class="col-4 mt-3">
+                                        {{ contact_form.mobile_number.label_tag }}
+                                        {{ contact_form.mobile_number }}
+                                        {{ contact_form.mobile_number.errors }}
+                                    </div>
 
                                 </div>
-        </div>
+         </div>
+
     </div>
 
     <div class="mt-3 text-center">
         <button type="submit" class="btn btn-primary mb-4 mt-4">Submit</button>
     </div>
+
+        {{user_form.username}}
+{{user_form.password1}}
+{{user_form.password2}}
 </form>
 {% endblock %}

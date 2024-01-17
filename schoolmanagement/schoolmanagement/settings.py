@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'crispy_forms',
     'django.contrib.admin',
+    'enrollment.apps.EnrollmentConfig',
     'webutil.apps.WebutilConfig',
     'students.apps.StudentsConfig',
     'academics.apps.AcademicsConfig',

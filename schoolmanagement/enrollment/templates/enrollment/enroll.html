@@ -1,0 +1,12 @@
+{% extends 'students/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h2>Register for Enrollment</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enroll</button>
+    </form>
+
+{% endblock %}

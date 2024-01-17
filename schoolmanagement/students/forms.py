@@ -129,7 +129,7 @@ class ViewAddressDetail(forms.ModelForm):
         fields = ['province', 'city', 'house_number', 'barangay', 'postal_code']
 
         widgets = {
-            'province': forms.TextInput(attrs={'class': 'form-control', 'disabled': 'disabled'}),
+            'province': forms.TextInput(attrs={'class': 'form-control', 'disabled': 'disabled', 'id': 'floatingInput', 'placeholder': 'Province', }),
             'city': forms.TextInput(attrs={'class': 'form-control', 'disabled': 'disabled'}),
             'house_number': forms.TextInput(attrs={'class': 'form-control', 'disabled': 'disabled'}),
             'barangay': forms.TextInput(attrs={'class': 'form-control', 'disabled': 'disabled'}),
