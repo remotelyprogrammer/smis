@@ -1,0 +1,30 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>School Year</h2>
+
+<table>
+        <thead>
+                <tr>
+                        <th>Name</th>
+                        <th>Subj Code</th>
+                        <th>Grade Level</th>
+                        <th>Description</th>
+                </tr>
+        </thead>
+        <tbody>
+                {% for subject in subjects %}
+                <tr>
+                        <td>
+                                <a href="{% url 'academics:view_subject' subject.id %}">
+                                {{subject.name}} </a>
+                        </td>
+                        <td> {{subject.code}} </td>
+                        <td>{{ subject.grade_level }}</td>
+                        <td> {{ subject.description }} </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+</table>
+
+
+{% endblock content %}

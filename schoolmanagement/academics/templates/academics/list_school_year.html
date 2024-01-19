@@ -1,0 +1,29 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>School Year</h2>
+
+<table>
+        <thead>
+                <tr>
+                        <th>Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                </tr>
+        </thead>
+        <tbody>
+                {% for school_year in school_years %}
+                <tr>
+                        <td>
+                                <a href="{% url 'academics:view_school_year' school_year.id %}">
+                                {{school_year.name}} </a>
+                        </td>
+                        <td> {{school_year.start_date}} </td>
+                        <td>{{ school_year.end_date }}</td>
+                        <td> {{ school_year.is_current }} </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+</table>
+
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>School Year</h2>
+
+<table>
+        <thead>
+                <tr>
+                        <th>Name</th>
+                        <th>School Year</th>
+                </tr>
+        </thead>
+        <tbody>
+                {% for grade_level in grade_levels %}
+                <tr>
+                        <td>
+                                <a href="{% url 'academics:view_grade_level' grade_level.id %}">
+                                {{grade_level.name}} </a>
+                        </td>
+                        <td> {{grade_level.school_year}} </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+</table>
+
+
+{% endblock content %}
