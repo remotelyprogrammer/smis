@@ -5,13 +5,13 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import SchoolYear, GradeLevel, Subject
 
 
-class InstructorForm(UserCreationForm):
-    title = forms.CharField(max_length=100, required=True)
-    department = forms.CharField(max_length=100, required=True)
+# class InstructorForm(UserCreationForm):
+#     title = forms.CharField(max_length=100, required=True)
+#     department = forms.CharField(max_length=100, required=True)
 
-    class Meta:
-        model = User
-        fields = UserCreationForm.Meta.fields + ('title', 'department')
+#     class Meta:
+#         model = User
+#         fields = UserCreationForm.Meta.fields + ('title', 'department')
 
 class SchoolYearForm(forms.ModelForm):
     class Meta:

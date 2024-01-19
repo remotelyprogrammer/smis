@@ -3,15 +3,15 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
 
-# Instructor Model
-class Instructor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100) # e.g., Dr., Mr., Ms.
-    department = models.CharField(max_length=100)
+# # Instructor Model
+# class Instructor(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     title = models.CharField(max_length=100) # e.g., Dr., Mr., Ms.
+#     department = models.CharField(max_length=100)
 
-    def __str__(self):
-        user: User = self.user  # Type hint for IDE
-        return f"{self.title} {self.user.first_name} {self.user.last_name}"
+#     def __str__(self):
+#         user: User = self.user  # Type hint for IDE
+#         return f"{self.title} {self.user.first_name} {self.user.last_name}"
 
 class SchoolYear(models.Model):
     name = models.CharField(max_length=100, verbose_name=_("Name"), blank=True)
