@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'enrollment.apps.EnrollmentConfig',
     'webutil.apps.WebutilConfig',
     'students.apps.StudentsConfig',
+    'instructors.apps.InstructorsConfig',
     'academics.apps.AcademicsConfig',
     'billing.apps.BillingConfig',
     'django.contrib.auth',

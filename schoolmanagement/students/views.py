@@ -17,7 +17,7 @@ def blank(requests):
     return render(requests, 'students/blank.html', context)
 
 
-def view_student(request, student_id):
+def read_student(request, student_id):
     student = get_object_or_404(Student, pk=student_id)
 
     # Assuming a OneToOne relationship with Address
@@ -35,10 +35,10 @@ def view_student(request, student_id):
         'student_id': student_id,
         'page_heading': 'Student Detail'
     }
-    return render(request, 'students/student_detail.html', context)
+    return render(request, 'students/read-student.html', context)
 
 
-def register_student(request):
+def create_student(request):
     if request.method == 'POST':
         student_form = StudentRegistrationForm(request.POST)
         address_form = AddressForm(request.POST)
@@ -76,10 +76,10 @@ def register_student(request):
         'contact_form': contact_form,
         'page_heading': 'Student Registration'
     }
-    return render(request, 'students/register_student.html', context)
+    return render(request, 'students/create-student.html', context)
 
 
-def edit_student_details(request, student_id):
+def update_student(request, student_id):
     student = get_object_or_404(Student, pk=student_id)
     address = Address.objects.filter(student=student).first()
     contacts = Contact.objects.filter(student=student)
@@ -109,7 +109,7 @@ def edit_student_details(request, student_id):
         address_form = AddressForm(instance=address)
         contact_forms = [ContactForm(instance=contact) for contact in contacts]
 
-    return render(request, 'students/edit_student.html', {
+    return render(request, 'students/update-student.html', {
         'student_form': student_form,
         'address_form': address_form,
         'contact_form': contact_forms,
@@ -124,7 +124,7 @@ def delete_student(request, student_id):
     return HttpResponseRedirect(reverse('students:students-home'))
 
 
-def list_student(request):
+def list_students(request):
     students = Student.objects.all()
     for student in students:
         print(student.first_name)
@@ -132,4 +132,4 @@ def list_student(request):
         'students': students,
         'page_heading': 'Student List',
     }
-    return render(request, 'students/list_student.html', context)
+    return render(request, 'students/list-students.html', context)

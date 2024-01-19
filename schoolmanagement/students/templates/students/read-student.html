@@ -246,7 +246,7 @@
 {% endfor %}
         <div class="container">
             <div class="text-center">
-                <a href="{% url 'students:edit_student' student_id=student_form.instance.id %}" class="btn btn-secondary">Edit</a>
+                <a href="{% url 'students:update-student' student_id=student_form.instance.id %}" class="btn btn-secondary">Edit</a>
             </div>
         </div>
 
